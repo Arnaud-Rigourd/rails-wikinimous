@@ -1,0 +1,12 @@
+<h1>My articles</h1>
+
+<% @article.each do |t| %>
+  <h2>
+    <%= link_to t.title, article_path(t.id) %> -
+    <%= link_to 'Delete article', delete_article_path(t.id), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+  </h2>
+  <p><%=t.content%></p>
+
+<% end %>
+
+<p><%= link_to "+ Add a new article", new_article_path %></p>
